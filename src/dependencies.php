@@ -44,3 +44,21 @@ $container['db'] = function ($c) {
 $container['session'] = function ($c) {
     return new \SlimSession\Helper;
 };
+
+
+$container['notFoundHandler'] = function ($c) {
+    return function ($request, $response) use ($c) {
+        return $c['view']->render($response->withStatus(404), 'error/404.twig', [
+            "myMagic" => "Let's roll"
+        ]);
+    };
+};
+
+/// 500 わからん
+// $container['errorHandler'] = function ($c) {
+//     return function ($request, $response) use ($c) {
+//         return $c['view']->render($response->withStatus(500), 'test/test.twig', [
+//             "myMagic" => "Let's roll"
+//         ]);
+//     };
+// };
