@@ -3,14 +3,24 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}せぴあ{% endblock %}</title>
     {% block header_scripts_add %}{% endblock %}
     <!-- BootStrap3 -->
     <style>
-        .box {
-            max-width: 800px;
+    body {
+  background: url('/assets/img/momiji.jpg') no-repeat center center fixed #C0C0C0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+        /* .box {
+            /* max-width: 800px; */
             margin: 0 auto;
-        }
+            background-image: url('/assets/img/momiji.jpg');
+            background-repeat:repeat-x;
+            height:1200px;
+        } */
 
         .list-unstyled {
             line-height: 2;
@@ -24,6 +34,15 @@
     <link rel="stylesheet" href="/assets/css/litera.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+       @font-face {
+           font-family: 'Hina2ndGrade';
+           src: url('/assets/fonts/id-kumo400a.ttf') format('truetype');
+       }
+       body{
+           font-family: 'Hina2ndGrade';
+       }
+   </style>
 </head>
 <body role="document">
 {#メニューをセットします#}
