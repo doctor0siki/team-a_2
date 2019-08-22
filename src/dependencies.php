@@ -53,11 +53,19 @@ $container['notFoundHandler'] = function ($c) {
         ]);
     };
 };
+$container['notAllowedHandler'] = function ($c) {
+    return function ($request, $response) use ($c) {
+        return $c['view']->render($response->withStatus(405), 'error/404.twig', [
+            "myMagic" => "Let's roll"
+        ]);
+    };
+};
 
-/// 500 わからん
+
+// // / 500 わからん
 // $container['errorHandler'] = function ($c) {
 //     return function ($request, $response) use ($c) {
-//         return $c['view']->render($response->withStatus(500), 'test/test.twig', [
+//         return $c['view']->render($response->withStatus(500), 'error/404.twig', [
 //             "myMagic" => "Let's roll"
 //         ]);
 //     };
