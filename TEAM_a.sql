@@ -32,7 +32,7 @@ CREATE TABLE `item` (
   `price` int(11) DEFAULT NULL,
   `detail` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `item` (
 
 /* LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES 
+INSERT INTO `item` VALUES
     (
         1,
         'amazon echo show 5',
@@ -82,6 +82,9 @@ INSERT INTO `item` VALUES
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
+DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(512) DEFAULT NULL,
@@ -91,7 +94,7 @@ CREATE TABLE `user` (
   `address` varchar(1024) DEFAULT NULL,
   `tel` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,17 +103,9 @@ CREATE TABLE `user` (
 
 /* LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES 
-    (
-        5,
-        'y-fukumoto@ceres-inc.jp',
-        '123456',
-        'yosuke',
-        '1580097',
-        '用賀4-10-1',
-        '0312345678'
-    )
-;
+INSERT INTO `user` (`email`, `password`, `name`, `zipcode`, `address`, `tel`) VALUES
+('y-fukumoto@ceres-inc.jp',	'123456',	'福本　洋介',	'1580097',	'用賀4-10-1',	'0312345678'),
+('ceres@ceres.com',	'123456',	'せれすたん',	NULL,	NULL,	NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /* UNLOCK TABLES;
 
@@ -130,5 +125,128 @@ INSERT INTO `user` VALUES
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+DROP TABLE IF EXISTS `tours`;
+CREATE TABLE `tours` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `destination` varchar(255) DEFAULT NULL,
+  `period` date DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `price` int(11) DEFAULT 0,
+  `agent_id` int(11) DEFAULT 0,
+  `seats_available` int(11) DEFAULT 10,
+  `image_url` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO `tours` (`name`,`destination`,`period`,`description`,`price`,`agent_id`,`seats_available`,`image_url`) VALUES
+(
+  'セレスツアー',
+  '世田谷区',
+  '2019-08-17',
+  'せれすたんを愛でよう！～至福の福本さん～',
+  200000,
+  1,
+  12,
+  'https://placehold.jp/150x150.png'
+),
+(
+  'オトナの街巡り',
+  '渋谷',
+  '2019-08-23',
+  'オトナの街でオトナになろう！',
+  25000,
+  2,
+  2,
+  'https://placehold.jp/150x150.png'
+);
+
+DROP TABLE IF EXISTS `reviews`;
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tour_id` varchar(255) DEFAULT NULL,
+  `image_url` text DEFAULT NULL,
+  `impressions` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `reviews` (`tour_id`,`image_url`,`impressions`) VALUES
+(
+  1,
+  'http://placehold.jp/250x50.png?text={}',
+  '感動しました'
+),
+(
+  2
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'息子と行きました。'
+),
+(
+  3
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'絶景でした。'
+),
+(
+  4
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'感無量です'
+),
+(
+  5
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'おかげで天国へ行けます'
+),
+(
+  6
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'主人の姿が浮かびました'
+),
+(
+  7
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'この世に悔いはありません'
+),
+(
+  8
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'楽しかった！'
+),
+(
+  9
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'最後の同窓会'
+),
+(
+  10
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'間違えて登録しました'
+),
+(
+  11
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'つまらなかった'
+),
+(
+  12
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'行かない方がいいです。'
+),
+(
+  13
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'無記入'
+),
+(
+  14
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'また行きたいと思います'
+),
+(
+  15
+  ,'http://placehold.jp/250x50.png?text={}'
+  ,'この旅行は、最低でした！'
+);
 
 -- Dump completed on 2019-08-21 18:40:57
