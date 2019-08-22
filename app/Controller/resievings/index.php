@@ -21,7 +21,7 @@ $app->get('/tours/{tour_id}/resieving/edit[/]', function (Request $request, Resp
     return $this->view->render($response, 'resievings/edit.twig', $data);
 });
 
-$app->post('tours/{tour_id}/reserving/update[/]', function (Request $request, Response $response) {
+$app->post('/tours/{tour_id}/reserving/update[/]', function (Request $request, Response $response) {
 
     $data = [];
     $resieving = $args["tour_id"];
