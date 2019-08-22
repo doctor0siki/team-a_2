@@ -8,7 +8,7 @@ $app->get('/api/tours/reviews/{review_id}[/]', function (Request $request, Respo
     $data = [
       "review_id" => intval($args["review_id"]),
       "age" => intval(30 * $args["review_id"]),
-      "gender" => (intval($args["review_id"]) % 20)? "オス" : "メス",
+      "gender" => (intval($args["review_id"] % 2)? "オス" : "メス",
       "visit_date" => date("Y/m/d"),
       "text" => intval($args["review_id"])."点でした。"
     ];
