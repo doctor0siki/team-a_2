@@ -309,4 +309,5 @@ INSERT INTO `reservings` (`tour_id`, `cs_name`, `departure_date`, `tell`, `refun
   0
 );
 
+
 -- Dump completed on 2019-08-21 18:40:57
