@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}せぴあ{% endblock %}</title>
     {% block header_scripts_add %}{% endblock %}
-    <!-- BootStrap3 -->
     <style>
     body {
       background: url('/assets/img/momiji.jpg') no-repeat center center fixed #C0C0C0;
@@ -14,28 +13,26 @@
       -o-background-size: cover;
       background-size: cover;
     }
-      /* div{border:solid 1px} */
-
-        .list-unstyled {
-            line-height: 2;
-        }
-
-        .mb10 {
-            margin: 0 0 10px 0;
-        }
+    .list-unstyled {
+        line-height: 2;
+    }
+    .mb10 {
+        margin: 0 0 10px 0;
+    }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
     <link rel="stylesheet" href="/assets/css/litera.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/ffdecdd0b6.js"></script>
+    <script src="https://kit.fontawesome.com/ffdecdd0b6.js"></script>
     <style>
-       @font-face {
-           font-family: 'Hina2ndGrade';
-           src: url('/assets/fonts/id-kumo400a.ttf') format('truetype');
-       }
-       body,p{
-           font-family: 'Hina2ndGrade';
-       }
+        @font-face {
+            font-family: 'Hina2ndGrade';
+            src: url('/assets/fonts/id-kumo400a.ttf') format('truetype');
+        }
+        body,p{
+            font-family: 'Hina2ndGrade';
+        }
+        a{color:#15BFD5;}
    </style>
 </head>
 <body role="document">
@@ -45,7 +42,6 @@
 {# メインコンテンツを配置します#}
 {% block page_content %}{% endblock %}
 
-<!-- BootStrap3 -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
