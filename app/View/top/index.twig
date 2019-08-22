@@ -105,6 +105,8 @@
         </div>
         <div class="col text-center">
             <img src="/assets/img/S__49971226.jpg"class="img-fluid" style="width:100%">
+            <div id="contents_list_area">
+            </div>
         </div>
     </div>
 
@@ -120,7 +122,58 @@
         </ul>
     </div>
 </div>
+    </div>
+    {#ローディングボタン最初は非表示で行く#}
+    <div class="st-Loading_More" style="display: none">
+        <div></div>
+    </div><!--/.st-Loading-Ball-->
+    {#ローディングボタンここまで#}
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+{% block footer_scripts_add %}
+
+    <script>
+
+
+        //メンバ数のプルダウンが変更されたとき
+        $("#member_count").change(function () {
+
+            //エンドポイントにリクエストを投げる
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "api/reviews",
+                data: {
+                    member: $("#member_count").val(),
+                }
+            }).done(function (result) {
+                let html = "";
+                let count = 1;
+                html += '<div class="row">';
+                $(result).each(function (index, element) {
+
+
+                    html += '<div class="col text-center">' +
+                        '<a href="/tours/' + element.id + '">' +
+                        '<img src="' + element.image_path + '" class="img-fluid" style="width:100%">' +
+                        '</a>' +
+                        '</div>';
+
+                    if (count % 2 == 0) {
+                        html += '</div><div class="row">&nbsp;</div>';
+                        html += '<div class="row">';
+                    }
+
+                    count++;
+
+                });
+
+                {# ロード済みにする #}
+                $("#contents_list_area").html(html);
+            }).fail(function (ex) {
+            });
+        })
+    </script>
+{% endblock %}
