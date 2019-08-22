@@ -184,67 +184,67 @@ INSERT INTO `reviews` (`tour_id`,`image_url`,`impressions`) VALUES
   ,'息子と行きました。'
 ),
 (
-  3
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'絶景でした。'
 ),
 (
-  4
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'感無量です'
 ),
 (
-  5
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'おかげで天国へ行けます'
 ),
 (
-  6
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'主人の姿が浮かびました'
 ),
 (
-  7
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'この世に悔いはありません'
 ),
 (
-  8
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'楽しかった！'
 ),
 (
-  9
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'最後の同窓会'
 ),
 (
-  10
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'間違えて登録しました'
 ),
 (
-  11
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'つまらなかった'
 ),
 (
-  12
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'行かない方がいいです。'
 ),
 (
-  13
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'無記入'
 ),
 (
-  14
+  1
   ,'http://placehold.jp/250x50.png?text={}'
   ,'また行きたいと思います'
 ),
 (
-  15
+  2
   ,'http://placehold.jp/250x50.png?text={}'
   ,'この旅行は、最低でした！'
 );
