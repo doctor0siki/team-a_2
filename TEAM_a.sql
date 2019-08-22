@@ -165,7 +165,7 @@ INSERT INTO `tours` (`name`,`destination`,`period`,`description`,`price`,`agent_
 DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tour_id` varchar(255) DEFAULT NULL,
+  `tour_id` int(11) DEFAULT 0,
   `image_url` text DEFAULT NULL,
   `impressions` text DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -249,4 +249,63 @@ INSERT INTO `reviews` (`tour_id`,`image_url`,`impressions`) VALUES
   ,'この旅行は、最低でした！'
 );
 
+DROP TABLE IF EXISTS `reservings`;
+CREATE TABLE `reservings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tour_id` int(11) DEFAULT 0,
+  `cs_name` varchar(255) DEFAULT NULL,
+  `departure_date` date DEFAULT NULL,
+  `tell` varchar(15) DEFAULT NULL,
+  `refund_method` int(11) DEFAULT 0,
+  `refund_amount` int(11) DEFAULT 0,
+  `agent_store_id` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO `reservings` (`tour_id`, `cs_name`, `departure_date`, `tell`, `refund_method`, `refund_amount`, `agent_store_id`) VALUES
+(
+  1,
+  'フクモト',
+  '2020-01-01',
+  '11122223333',
+  1,
+  200000,
+  1
+),
+(
+  2,
+  'せれすたん',
+  '2019-12-31',
+  '1112223334',
+  2,
+  150000,
+  1
+),
+(
+  1,
+  NULL,
+  NULL,
+  NULL,
+  0,
+  0,
+  0
+),
+(
+  2,
+  NULL,
+  NULL,
+  NULL,
+  0,
+  0,
+  0
+),
+(
+  1,
+  NULL,
+  NULL,
+  NULL,
+  0,
+  0,
+  0
+);
 -- Dump completed on 2019-08-21 18:40:57
