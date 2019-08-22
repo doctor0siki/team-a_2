@@ -6,7 +6,47 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+<style>
+.pageNav04c {
+	/zoom: 1;
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 10px;
+	padding: 10px;
+	background-color: rgba(255,0,0,0);
+}
 
+
+.pageNav04c ul {
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+.pageNav04c ul li {
+	position: relative;
+	left: -50%;
+	float: left;
+	margin: 0;
+}
+
+.pageNav04c li span,
+.pageNav04c li a {
+	display: inline-block;
+	margin: 0 1px 1px 0;
+	padding: 1px 8px;
+	background: #590416;
+	border: 1px solid #590416;
+	text-decoration: none;
+	vertical-align: middle;
+	color: #FFFFFF;
+}
+
+.pageNav04c li a:hover {
+	background: #eeeff7;
+	border-color: #590416;
+}
+</style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
@@ -46,16 +86,9 @@
                 <form method="get" action="">
                   <div class="form-group text-center">
                     <select name="menber" class="form-control">
-                      <option value="1">１人</option>
-                      <option value="2">２人</option>
-                      <option value="3">３人</option>
-                      <option value="4">４人</option>
-                      <option value="5">５人</option>
-                      <option value="6">６人</option>
-                      <option value="7">７人</option>
-                      <option value="8">８人</option>
-                      <option value="9">９人</option>
-                      <option value="10">１０人</option>
+                      {% for i in 1..10 %}
+                        <option value="{{i}}">{{i}}人</option>
+                      {% endfor %}
                     </select>
                   </div>
                   <p>
@@ -68,7 +101,41 @@
               </div>
             </div>
 
-            <!--ここから画像表示  -->
+            <!-- ここから画像表示  -->
+            <!-- とりあえず全部同じやけど！ -->
+            <div class="row">
+              <div class="col　text-center">
+                <img src="/assets/img/border.jpg"class="img-fluid" style="width:100%">
+              </div>
+              <div class="col text-center">
+                <img src="/assets/img/S__49971226.jpg"class="img-fluid" style="width:100%">
+              </div>
+            </div>
+
+
+
+          <!-- <div class="pageNav04c">
+            <ul>
+              <li><span>壱</span></li>
+              <li><a href="2.html">弐</a></li>
+              <li><a href="3.html">参</a></li>
+              <li><a href="4.html">四</a></li>
+              <li><a href="5.html">伍</a></li>
+              <li><a href="6.html">陸</a></li>
+              <li><a href="2.html">次 &raquo;</a></li>
+            </ul> -->
+            <div class="pageNav04c">
+            <ul>
+
+            <li><span>壱</span></li>
+            <li><a href="3.html">弐</a></li>
+            <li><a href="3.html">参</a></li>
+            <li><a href="4.html">四</a></li>
+            <li><a href="5.html">伍</a></li>
+            <li><a href="6.html">陸</a></li>
+            <li><a href="3.html">次 &raquo;</a></li>
+            </ul>
+            </div>
 
 
             </div>

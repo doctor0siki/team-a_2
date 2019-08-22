@@ -1,0 +1,95 @@
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}ハジメ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<style>
+.pageNav04c {
+	/zoom: 1;
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 10px;
+	padding: 10px;
+	background-color: rgba(255,0,0,0);
+}
+
+
+.pageNav04c ul {
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+.pageNav04c ul li {
+	position: relative;
+	left: -50%;
+	float: left;
+	margin: 0;
+}
+
+.pageNav04c li span,
+.pageNav04c li a {
+	display: inline-block;
+	margin: 0 1px 1px 0;
+	padding: 1px 8px;
+	background: #590416;
+	border: 1px solid #590416;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.pageNav04c li a:hover {
+	background: #eeeff7;
+	border-color: #590416;
+}
+</style>
+{% endblock %}
+
+{% block page_content %}
+
+  <div class="container">
+<div>
+  <div class="row">
+    概要とかそんな表示部分<br />
+  </div>
+  <div>
+    <div class="row">
+      <div class="col">
+        画像ー
+      </div>
+      <div class="col">
+        画像ーー
+      </div>
+      </div>
+  </div>
+</div>
+
+
+このへんに画像ー
+
+
+
+<div class="pageNav04c">
+<ul>
+
+<li><span>壱</span></li>
+<li><a href="3.html">弐</a></li>
+<li><a href="3.html">参</a></li>
+<li><a href="4.html">四</a></li>
+<li><a href="5.html">伍</a></li>
+<li><a href="6.html">陸</a></li>
+<li><a href="3.html">次 &raquo;</a></li>
+</ul>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
