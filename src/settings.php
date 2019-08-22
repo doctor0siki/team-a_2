@@ -31,10 +31,10 @@ return [
 
             'connection' => [
                 'driver' => 'pdo_mysql',
-                'host' => '127.0.0.1',
+                'host' => isset($_ENV['docker']) ? 'db' : '127.0.0.1',
                 'port' => '3306',
-                'user' => 'team-a',
-                'password' => 'team-a!',
+                'user' => isset($_ENV['docker']) ? 'root' : 'team-a',
+                'password' => isset($_ENV['docker']) ?'password' : 'team-a!',
                 'dbname' => 'team-a',
                 'charset' => 'utf8'
             ]
