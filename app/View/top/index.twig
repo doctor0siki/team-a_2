@@ -2,21 +2,75 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}TOP{% endblock %}
+{% block title %}ハジメ{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+  <div style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:100px;">
+
+  </div>
     <div class="page-header text-center">
-        <h1>サービス名</h1>
+        <h1>せぴあ</h1>
     </div>
     <div class="container">
         <div class="box">
+          <br /><br />
             <div class="row">
-                ここにコンテンツが入る
+              <div class="col text-center">
+                ココデハ色々ナ写真ガ見ラレマス。<br />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                オ気ニ入リノ写真ニ触レテクダサイ<br />
+              </div>
+            </div>
+
+            <br /><br />
+
+            <div class="row">
+              <div class="col text-center">
+                参加人数を選んで下さい
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col text-center">
+                <form method="get" action="">
+                  <div class="form-group text-center">
+                    <select name="menber" class="form-control">
+                      <option value="1">１人</option>
+                      <option value="2">２人</option>
+                      <option value="3">３人</option>
+                      <option value="4">４人</option>
+                      <option value="5">５人</option>
+                      <option value="6">６人</option>
+                      <option value="7">７人</option>
+                      <option value="8">８人</option>
+                      <option value="9">９人</option>
+                      <option value="10">１０人</option>
+                    </select>
+                  </div>
+                  <p>
+                    <i class="fas fa-user-friends"></i>
+                    <input type="submit" value="探ス" class="btn btn-dark">
+                  </p>
+                </form>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+
+            <!--ここから画像表示  -->
+
+
             </div>
         </div>
     </div>
