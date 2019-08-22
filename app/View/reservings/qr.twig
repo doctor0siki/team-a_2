@@ -1,0 +1,34 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>予約画面</h1>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well text-center">
+                        コノ画面ヲ最寄リノ旅行代理店デ見セテクダサヒ
+                        <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ tour_id }}/reserving/edit?reserving_id={{ reserving_record }}" />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}
+{% endblock %}
