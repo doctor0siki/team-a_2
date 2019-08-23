@@ -280,33 +280,6 @@ INSERT INTO `reservings` (`tour_id`, `cs_name`, `departure_date`, `tell`, `refun
   2,
   150000,
   1
-),
-(
-  1,
-  NULL,
-  NULL,
-  NULL,
-  0,
-  0,
-  0
-),
-(
-  2,
-  NULL,
-  NULL,
-  NULL,
-  0,
-  0,
-  0
-),
-(
-  1,
-  NULL,
-  NULL,
-  NULL,
-  0,
-  0,
-  0
 );
 
 
