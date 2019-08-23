@@ -12,6 +12,7 @@ class Reviews extends Dao
         $sql = "SELECT r.image_url, t.name, t.id FROM reviews r
             JOIN tours t ON r.tour_id = t.id
             WHERE t.seats_available >= :seats_available
+            ORDER BY r.id DESC
             LIMIT 10 OFFSET :offset
         ";
         $stmt = $this->db->prepare($sql);
@@ -23,5 +24,23 @@ class Reviews extends Dao
             $data[] = $row;
         }
         return $data;
+    }
+
+
+    public function validate($_data){
+        if($_data["file"] == null){
+            return true;
+        }
+        if($_data["visit_date"] == null ){
+            return true;
+        }
+        if($_data["impressions"] == null ){
+            return true;
+        }
+        if($_data["reserving_id"] == null ){
+            return true;
+        }
+
+        return false;
     }
 }
