@@ -166,87 +166,104 @@ DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tour_id` int(11) DEFAULT 0,
+  `reserving_id` int(11) DEFAULT 0,
+  `visit_date` date DEFAULT NULL,
   `image_url` text DEFAULT NULL,
   `impressions` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4; /* COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `reviews` (`tour_id`,`image_url`,`impressions`) VALUES
+INSERT INTO `reviews` (`tour_id`, `reserving_id`, `image_url`,`impressions`) VALUES
 (
   1,
+  '1',
   'http://placehold.jp/250x50.png?text={}',
   '感動しました'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'息子と行きました。'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '息子と行きました。'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'絶景でした。'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '絶景でした。'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'感無量です'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '感無量です'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'おかげで天国へ行けます'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  'おかげで天国へ行けます'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'主人の姿が浮かびました'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '主人の姿が浮かびました'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'この世に悔いはありません'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  'この世に悔いはありません'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'楽しかった！'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '楽しかった！'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'最後の同窓会'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '最後の同窓会'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'間違えて登録しました'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '間違えて登録しました'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'つまらなかった'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  'つまらなかった'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'行かない方がいいです。'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '行かない方がいいです。'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'無記入'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  '無記入'
 ),
 (
-  1
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'また行きたいと思います'
+  1,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  'また行きたいと思います'
 ),
 (
-  2
-  ,'http://placehold.jp/250x50.png?text={}'
-  ,'この旅行は、最低でした！'
+  2,
+  '1',
+  'http://placehold.jp/250x50.png?text={}',
+  'この旅行は、最低でした！'
 );
 
 DROP TABLE IF EXISTS `reservings`;

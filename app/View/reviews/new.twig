@@ -9,39 +9,39 @@
 <style>
 .waku div{border: 3px dotted #A0522D}
 
-<?php /* javascriptをブラウザが無効にしてる時だけ出るヘッダーのcss */ ?>
+
 #modal-content_javascript_error{
-	<?php /* 幅・高さ */ ?>
+	
 	width:400px;
 	height: 400px;
-	<?php /* ボックスの重なりの順序を指定 */ ?>
+	
 	z-index:2;
-	<?php /* 背景の色 */ ?>
+	
 	background-color: #DEB887;
-	<?php /* 位置の固定 */ ?>
+	
 	position: fixed;
-	<?php /* 位置 */ ?>
+	
 	top:30px;
 	left:0;
 	right:0;
-	<?php /* 角を丸くします。 */ ?>
+	
 	border-radius: 20px;
 }
-<?php /* 2番目に表示させるdiv半透明の膜 */ ?>
+
 #modal-overlay{
-	<?php /* ボックスの重なりの順序を指定 */ ?>
+	
 	z-index:1;
-	<?php /* 位置の固定 */ ?>
+	
 	position:fixed;
-	<?php /* 位置 */ ?>
+	
 	top:0;
 	left:0;
-	<?php /* 幅・高さ */ ?>
+	
 	width:100%;
 	height:100%;
-	<?php /* 背景の色（半透明） */ ?>
+	
 	background-color:rgba(51,51,51,0.6);
-	<?php /* 外側の余白 */ ?>
+	
 	margin-top:0px;
 
 }
@@ -57,7 +57,7 @@ textarea{
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{ create_path }}" method="post" enctype="multipart/form-data">
 
 <div class="container">
 <div class="row text-center">
@@ -75,12 +75,9 @@ textarea{
     </script>
     <br /><br />
     <div>
-      <h2><?php echo $log_1; ?></h2>
-
+      <h2></h2>
 	       <label>写真ヲ貼ル</label>
 	         <p><input type="file" name="file" size="80px" id="upload" accept="image/*"></p>
-
-
 
         </div>
       </div>
@@ -112,6 +109,7 @@ textarea{
     <div class="row">
       <br /><br />
       <div class="col text-center">
+        <input type="hidden" name="reserving_id" value="{{ reserving_id }}">
         <input type="submit" value="書キ留メル" class="btn btn-dark">
       </div>
     </div>

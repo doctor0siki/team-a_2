@@ -20,4 +20,22 @@ class Reviews extends Dao{
         }
         return $data;
     }
+
+
+    public function validate($_data){
+        if($_data["file"] == null){
+            return true;
+        }
+        if($_data["visit_date"] == null ){
+            return true;
+        }
+        if($_data["impressions"] == null ){
+            return true;
+        }
+        if($_data["reserving_id"] == null ){
+            return true;
+        }
+
+        return false;
+    }
 }
