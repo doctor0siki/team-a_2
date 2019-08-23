@@ -85,22 +85,23 @@
         <span>合計金額 ￥{{ tour.price | number_format | nl2br }}</span>
         <a href="{{ qr_path }}" class="btn btn-dark text-white">行ク</a>
     </div>
-</div>
+
 <div class="card-deck">
     {% for review in tour.reviews %}
-        <div class="card text-center col"><br>
-            <img src="{{ review.image_url }}" class=" card-img-top img-fluid" style="width:auto;height: 300px;object-fit: contain;">
+        <div class="card text-center col" style="min-height:400px;"><br>
+            <img src="{{ review.image_url }}" class="card-img-top img-fluid" style="width:auto;height: 300px;object-fit: contain;">
             <div class="card-body">
                 <hr>
                 <h5>{{ review.impressions }}</h5>
             </div>
         </div>
         {% if loop.index % 2 == 0 %}
-            </div>
-            <div class="row">&nbsp;</div>
-            <div class="card-deck">
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="card-deck">
         {% endif %}
     {% endfor %}
+</div>
 </div>
 
 {% endblock %}
