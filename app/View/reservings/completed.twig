@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}ハジメ{% endblock %}
+{% block title %}ヨヤクカンリョウ{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -16,7 +16,7 @@
   </div>
     <div class="page-header text-center">
         <div>
-          <h1>{{cs_name}}様、予約完了デス！</h1>
+          <h1>{{reserving.cs_name}}様、予約完了デス！</h1>
           <p>
             代理店の方へ<br>
             この画面を印刷の上、お客様にお渡しください。
@@ -31,7 +31,7 @@
           </p>
         </div>
         <div>
-          <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ tour_id }}/reviews/new?reserving_id={{ reserving_record }}" />
+          <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ reserving.tour_id }}/reviews/new?reserving_id={{ reserving.id }}" />
         </div>
 
 

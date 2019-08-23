@@ -48,6 +48,7 @@
             border-color: #590416;
             color: gray;
         }
+
     </style>
 {% endblock %}
 
@@ -88,6 +89,7 @@
                 　
             </div>
 
+
             {# ここに動的にロードされた画像が出ます。#}
             <div id="contents_list_area">
             </div>
@@ -101,7 +103,7 @@
             {#ローディングボタンここまで#}
 
             {# モット見ルボタン#}
-            <div class="row" >
+            <div class="row">
                 <div class="col  text-center">
                     <button class="btn btn-danger form-control" id="more">モット見ル</button>
                 </div>
@@ -183,19 +185,19 @@
                     let html = "";
                     let count = 1;
 
-                    html += '<div class="row">';
+                    html += '<div class="card-deck">';
 
                     $(result).each(function (index, element) {
-                        html += '<div class="col text-center">' +
+                        html += '<div class="card text-center"><br>' +
                             '<a href="/tours/' + element.id + '">' +
-                            '<img src="' + element.image_url + '" class="img-fluid" style="width:100%">' +
-                            '</a>' +
-                            '' + element.name + '' +
-                            '</div>';
+                            '<img src="' + element.image_url + '" class=" card-img-top img-fluid" style="width:auto;height: 300px">' +
+                            '<div class="card-body">' +
+                            '<hr><h5>' + element.name + '</h5>' +
+                            '</a></div></div>';
 
                         if (count % 2 == 0) {
                             html += '</div><div class="row">&nbsp;</div>';
-                            html += '<div class="row">';
+                            html += '<div class="card-deck">';
                         }
 
                         count++;

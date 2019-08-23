@@ -1,11 +1,15 @@
 <?php
+
 namespace Model\Dao;
+
 use PDO;
 
-class Reviews extends Dao{
-    public function get_reviews($seets_available = 1, $page = 0){
+class Reviews extends Dao
+{
+    public function get_reviews($seets_available = 1, $page = 0)
+    {
         $offset = $page * 10;
-        $sql = "SELECT * FROM reviews r
+        $sql = "SELECT r.image_url, t.name, t.id FROM reviews r
             JOIN tours t ON r.tour_id = t.id
             WHERE t.seats_available >= :seats_available
             LIMIT 10 OFFSET :offset
@@ -15,7 +19,7 @@ class Reviews extends Dao{
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
         $stmt->execute();
         $data = [];
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $data[] = $row;
         }
         return $data;

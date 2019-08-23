@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}{% endblock %}
+{% block title %}ヨヤクガメン{% endblock %}
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col well text-center">
-                    <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ tour_id }}/reserving/edit?reserving_id={{ reserving_record }}" />
+                    <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ tour_id }}/reserving/edit" />
                     {#<a href="{{ host_name }}/tours/{{ tour_id }}/reserving/edit?reserving_id={{ reserving_record }}">てすと<</a>
                     #}
                 </dev>
