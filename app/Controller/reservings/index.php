@@ -40,7 +40,7 @@ $app->post('/tours/{tour_id}/reserving/update[/]', function (Request $request, R
       "agent_store_id" =>  $received["agent_store_id"],
       "tour_id" => $args["tour_id"],
       "reserving_record" => $args["tour_id"] * 10,
-      "host_name" => 'http://team-a4.2021.local',
+      "host_name" => 'http://'.$this->request->getServerParams()["HTTP_HOST"],
     ];
     $reserving = $args["tour_id"];
 
