@@ -1,0 +1,42 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}ハジメ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+  <div style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:100px;">
+
+  </div>
+    <div class="page-header text-center">
+        <div>
+          <h1>{{cs_name}}様、予約完了デス！</h1>
+          <p>
+            代理店の方へ<br>
+            この画面を印刷の上、お客様にお渡しください。
+          </p>
+        </div>
+
+        <div>
+          <p>
+            お客様へ<br>
+            以下のQRコードを読み取りいただき、ご旅行中や終了後に感想をお書き込みください。<br>
+            一定額をキャッシュバックいたします。
+          </p>
+        </div>
+        <div>
+          <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{ host_name }}/tours/{{ tour_id }}/reviews/new?reserving_id={{ reserving_record }}" />
+        </div>
+
+
+
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
