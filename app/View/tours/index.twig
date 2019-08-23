@@ -86,36 +86,23 @@
         <a href="{{ qr_path }}" class="btn btn-dark text-white">行ク</a>
     </div>
 </div>
-<div class="container">
-    <div class="card-deck">
-        {% for review in tour.reviews %}
-            <div class="card text-center col"><br>
-                <img src="{{ review.image_url }}" class=" card-img-top img-fluid" style="width:auto;height: 300px">
-                <div class="card-body">
-                    <hr>
-                    <h5>{{ review.impressions }}</h5>
-                </div>
+<div class="card-deck">
+    {% for review in tour.reviews %}
+        <div class="card text-center col"><br>
+            <img src="{{ review.image_url }}" class=" card-img-top img-fluid" style="width:auto;height: 300px;object-fit: contain;">
+            <div class="card-body">
+                <hr>
+                <h5>{{ review.impressions }}</h5>
             </div>
-            {% if loop.index % 2 == 0 %}
-                </div>
-                <div class="row">&nbsp;</div>
-                <div class="card-deck">
-            {% endif %}
-        {% endfor %}
-    </div>
+        </div>
+        {% if loop.index % 2 == 0 %}
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="card-deck">
+        {% endif %}
+    {% endfor %}
 </div>
 
-<div class="pageNav04c">
-    <ul>
-        <li><span>壱</span></li>
-        <li><a href="3.html">弐</a></li>
-        <li><a href="3.html">参</a></li>
-        <li><a href="4.html">四</a></li>
-        <li><a href="5.html">伍</a></li>
-        <li><a href="6.html">陸</a></li>
-        <li><a href="3.html">次 &raquo;</a></li>
-    </ul>
-</div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

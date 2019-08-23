@@ -19,7 +19,7 @@ $app->get('/tours/{tour_id}/reviews/new[/]', function (Request $request, Respons
     $data["reserving_id"] = $request->getQueryParams()["reserving_id"];
 
     if(intval($data["reserving_id"]) == 0){
-        return $this->view->render($response->withStatus(401), 'error/404.twig', [
+        return $this->view->render($response->withStatus(400), 'error/404.twig', [
             "myMagic" => "Let's roll"
         ]);
     }
