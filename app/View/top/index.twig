@@ -6,121 +6,216 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-<style>
-.pageNav04c {
-	/zoom: 1;
-	position: relative;
-	overflow: hidden;
-	margin: 0 0 10px;
-	padding: 10px;
-	background-color: rgba(255,0,0,0);
-}
+    <style>
+        .pageNav04c {
+        / zoom: 1;
+            position: relative;
+            overflow: hidden;
+            margin: 0 0 10px;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0);
+        }
 
 
-.pageNav04c ul {
-	position: relative;
-	left: 50%;
-	float: left;
-    list-style: none;
-}
+        .pageNav04c ul {
+            position: relative;
+            left: 50%;
+            float: left;
+            list-style: none;
+        }
 
-.pageNav04c ul li {
-	position: relative;
-	left: -50%;
-	float: left;
-	margin: 0;
-}
+        .pageNav04c ul li {
+            position: relative;
+            left: -50%;
+            float: left;
+            margin: 0;
+        }
 
-.pageNav04c li span,
-.pageNav04c li a {
-	display: inline-block;
-	margin: 0 1px 1px 0;
-	padding: 1px 8px;
-	background: #590416;
-	border: 1px solid #590416;
-	text-decoration: none;
-	vertical-align: middle;
-	color: #FFFFFF;
-}
+        .pageNav04c li span,
+        .pageNav04c li a {
+            display: inline-block;
+            margin: 0 1px 1px 0;
+            padding: 1px 8px;
+            background: #590416;
+            border: 1px solid #590416;
+            text-decoration: none;
+            vertical-align: middle;
+            color: #FFFFFF;
+        }
 
-.pageNav04c li a:hover {
-	background: #eeeff7;
-	border-color: #590416;
-    color: gray;
-}
-</style>
+        .pageNav04c li a:hover {
+            background: #eeeff7;
+            border-color: #590416;
+            color: gray;
+        }
+    </style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-<div style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:100px;">
-</div>
+    <div class="page-header text-center" style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:50px;">
+        <h1>せぴあ</h1>
+    </div>
 
-<div class="page-header text-center">
-    <h1>せぴあ</h1>
-</div>
-<div class="container">
-    <div class="box">
-        <br /><br />
-        <div class="row">
-            <div class="col text-center">ココデハ色々ナ写真ガ見ラレマス。<br /></div>
-        </div>
-        <div class="row">
-            <div class="col text-center">オ気ニ入リノ写真ニ触レテクダサイ<br /></div>
-        </div>
-
-        <br /><br />
-
-        <div class="row">
-            <div class="col text-center">参加人数を選んで下さい</div>
-        </div>
-
-        <div class="row">
-            <div class="col">
+    <div class="container">
+        <div class="box">
+            <br/><br/>
+            <div class="row">
+                <div class="col text-center">参加人数を選んで下さい</div>
             </div>
-            <div class="col text-center">
-                <form method="get" action="">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col text-center">
                     <div class="form-group text-center">
-                        <select name="menber" class="form-control">
-                        {% for i in 1..10 %}
-                            <option value="{{i}}">{{i}}人</option>
-                        {% endfor %}
+                        <select name="member" class="form-control" id="member_count">
+                            {% for i in 1..10 %}
+                                <option value="{{ i }}">{{ kanji_num[i] }}人</option>
+                            {% endfor %}
                         </select>
                     </div>
-                    <p>
-                        <i class="fas fa-user-friends"></i>
-                        <input type="submit" value="探ス" class="btn btn-dark">
-                    </p>
-                </form>
+                </div>
+                <div class="col">
+                </div>
             </div>
-        <div class="col">
-        </div>
-    </div>
+            <div class="row">
+                <div class="col text-center">ココデハ色々ナ写真ガ見ラレマス。<br/></div>
+            </div>
+            <div class="row">
+                <div class="col text-center">オ気ニ入リノ写真ニ触レテクダサイ<br/></div>
+            </div>
+            <div class="row">
+                　
+            </div>
 
-    {# <!-- ここから画像表示  -->
-    <!-- とりあえず全部同じやけど！ --> #}
-    <div class="row">
-        <div class="col　text-center">
-            <img src="/assets/img/border.jpg"class="img-fluid" style="width:100%">
-        </div>
-        <div class="col text-center">
-            <img src="/assets/img/S__49971226.jpg"class="img-fluid" style="width:100%">
-        </div>
-    </div>
+            {# ここに動的にロードされた画像が出ます。#}
+            <div id="contents_list_area">
+            </div>
 
-    <div class="pageNav04c">
-        <ul>
-            <li><a href="">壱</a></li>
-            <li><a href="">弐</a></li>
-            <li><a href="">参</a></li>
-            <li><a href="">四</a></li>
-            <li><a href="">伍</a></li>
-            <li><a href="">陸</a></li>
-            <li><a href="">次 &raquo;</a></li>
-        </ul>
+            {#ローディングボタン最初は非表示で行く#}
+            <div class="st-Loading_More text-center" style="display: none">
+                <div>
+                    <img src="/assets/img/loading.jpg" width="100">
+                </div>
+            </div>
+            {#ローディングボタンここまで#}
+
+            {# モット見ルボタン#}
+            <div class="row" >
+                <div class="col  text-center">
+                    <button class="btn btn-danger form-control" id="more">モット見ル</button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+{% block footer_scripts_add %}
+    <script>
+
+        {# 読み込み中ステータスかどうかを持つフラグ #}
+        let loading = false;
+
+        //最初は1ページ目
+        var page = 1;
+
+        //画面がロードされたら
+        $(document).ready(function () {
+
+            //メンバ数のプルダウンが変更されたとき
+            $("#member_count").change(function () {
+
+                //最初は1ページ目
+                page = 1;
+
+                {# ローディングステータスにする #}
+                loading = true;
+
+                {# ローディングボタンを表示 #}
+                $(".st-Loading_More").css('display', 'block');
+
+                //ローディング感が無いので、一旦HTMLを空にします。
+                $("#contents_list_area").html("");
+
+                //ツアーリストを取得し直します。
+                getTourList(page);
+
+                //次のページへ行けるようにページ数をカウントアップ
+                page++;
+
+            });
+
+            //モット見ルボタンを押されたときの挙動です
+            $("#more").click(function () {
+
+                {# ローディングステータスにする #}
+                loading = true;
+
+                {# ローディングボタンを表示 #}
+                $(".st-Loading_More").css('display', 'block');
+
+                //ツアーリストを取得し直します。
+                getTourList(page);
+
+                //ページ追加します
+                page++;
+
+            });
+
+            /**
+             * ツアー一覧を取得する部分です。
+             */
+            function getTourList(page) {
+
+                //エンドポイントにリクエストを投げる
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    url: "/api/reviews",
+                    data: {
+                        member: $("#member_count").val(),
+                        page: page
+                    }
+
+                }).done(function (result) {
+
+                    let html = "";
+                    let count = 1;
+
+                    html += '<div class="row">';
+
+                    $(result).each(function (index, element) {
+                        html += '<div class="col text-center">' +
+                            '<a href="/tours/' + element.id + '">' +
+                            '<img src="' + element.image_url + '" class="img-fluid" style="width:100%">' +
+                            '</a>' +
+                            '' + element.name + '' +
+                            '</div>';
+
+                        if (count % 2 == 0) {
+                            html += '</div><div class="row">&nbsp;</div>';
+                            html += '<div class="row">';
+                        }
+
+                        count++;
+                    });
+
+                    {# 画像を表示します。 #}
+                    $("#contents_list_area").append(html);
+
+                    {# ロード済みにする #}
+                    loading = false;
+
+                    {# ローディングボタンを隠す #}
+                    $(".st-Loading_More").css('display', 'none');
+
+                }).fail(function (ex) {
+
+                    {# ロード済みにする #}
+                    loading = false;
+                });
+            }
+        })
+    </script>
+{% endblock %}
