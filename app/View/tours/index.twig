@@ -1,7 +1,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}ハジメ{% endblock %}
+{% block title %}旅行詳細{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -15,11 +15,29 @@
 	background-color: rgba(255,0,0,0);
 }
 
+.side-by-side{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex .flex-item-250{
+    display: inline-block;
+    width: 250px;
+}
+.flex .flex-item-other{
+    display: inline-block;
+    width: calc( 100% - 250px );
+}
 
 .pageNav04c ul {
 	position: relative;
 	left: 50%;
 	float: left;
+    list-style: none;
 }
 
 .pageNav04c ul li {
@@ -53,34 +71,40 @@
 
 {% block page_content %}
 
-  <div class="container">
-<div>
-  <div class="row">
-			<br /><br />
-<div class="dekamoji">
-	○○ツアー！
+<div class="container">
+    <div>
+        <div class="row">
+                    <br /><br />
+        <div class="dekamoji">{{ tour.name }}</div>
+        <br /><br /><br />
+    </div>
+	<div class="flex">
+		<div class="flex-item-250 text-center">経由地</div>
+        <div class="flex-item-other">{% for location in tour.locations %}{{ location }}<br>{% endfor %}</div>
+    </div>
+    <div class="">
+        <div class="raw_break">{{ tour.description }}</div>
+	</div>
+	<div class="side-by-side mb-5">
+		<span>合計金額 ￥{{ tour.price | number_format | nl2br }}</span>
+		<a href="{{ qr_path }}" class="btn btn-dark text-white">行ク</a>
+	</div>
+
+    <div class="card-deck text-center">
+        {% for review in tour.reviews %}
+            <div class="card md-6">
+                <img src="{{ review.image_url }}" class="img-fluid" style="width:100%">
+            </div>
+        {% endfor %}
+        <div class="card md-6">
+            <img src="/assets/img/border.jpg" class="img-fluid" style="width:100%">
+        </div>
+        <div class="card md-6">
+            <img src="/assets/img/S__49971226.jpg" class="img-fluid" style="width:100%">
+        </div>
+    </div>
 </div>
-<br /><br /><br />
-  </div>
-	<div class="row">
-		<div class="col text-left">
-			経由地：□□公園<br />
-<span style="margin-right: 4em;"></span>☆☆湖<br /><br />
-			1泊2日デ○○県ノ観光地ヲ訪レマス。<br />
-			観光バスデノツアーノタメ、気軽ニ楽シメマス☆<br /><br />
-
-		</div>
-	</div>
-	<div class="row">
-		<div class="col text-right">
-			合計金額　￥120,000
-		</div>
-		<div class="col text-right">
-			  <input type="submit" value="行ク" class="btn btn-dark">
-		</div>
-	</div>
-
-  <div>
+<div>
 		<div class="row">
 			<div class="col　text-center">
 				<img src="/assets/img/border.jpg"class="img-fluid" style="width:100%">
@@ -92,27 +116,16 @@
   </div>
 </div>
 
-
-
-
-
 <div class="pageNav04c">
-<ul>
-
-<li><a href="3.html">壱</a></li>
-<li><a href="3.html">弐</a></li>
-<li><a href="3.html">参</a></li>
-<li><a href="4.html">四</a></li>
-<li><a href="5.html">伍</a></li>
-<li><a href="6.html">陸</a></li>
-<li><a href="3.html">次 &raquo;</a></li>
-</ul>
-</div>
-
-
-</div>
-</div>
-</div>
+    <ul>
+        <li><span>壱</span></li>
+        <li><a href="3.html">弐</a></li>
+        <li><a href="3.html">参</a></li>
+        <li><a href="4.html">四</a></li>
+        <li><a href="5.html">伍</a></li>
+        <li><a href="6.html">陸</a></li>
+        <li><a href="3.html">次 &raquo;</a></li>
+    </ul>
 </div>
 {% endblock %}
 

@@ -8,7 +8,7 @@ $app->get('/tours/{tour_id}/reserving[/]', function (Request $request, Response 
     $data = [
       "tour_id" => $args["tour_id"],
       "reserving_record" => $args["tour_id"] * 10,
-      "host_name" => 'http://team-a4.2021.local',
+      "host_name" => 'http://'. $host_name = $this->request->getServerParams()["HTTP_HOST"]
     ];
     $reserving = $args["tour_id"];
 
