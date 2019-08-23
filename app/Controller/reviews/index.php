@@ -41,8 +41,9 @@ $app->post('/tours/{tour_id}/reviews/create[/]', function (Request $request, Res
         return $response->withRedirect('/tours/'.$tour_id.'/reviews/new');
     }
 
+
     // file upload
-    $upload_directory = '/var/www/public/assets/img/uploads';
+    $upload_directory = "/opt/intern/app/team-a/project/public/assets/img/uploads";
 
     $uploadedFile = $request->getUploadedFiles()['file'];
     $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
