@@ -17,30 +17,30 @@
     <div class="page-header text-center">
         <h3>以下のフォームに記入してください</h3>
     </div>
+
     <div class="container">
         <div class="box">
           <br /><br />
             <div class="row">
+
               <div class="col">
-              </div>
-              <div class="col text-center">
                 <form method="post" action="/tours/{{tour_id}}/reserving/update/">
-                  <div class="form-group text-center">
-                    <p>お名前</p>
-                    <input type="text" name="cs_name">
-                    <p>出発日</p>
-                    <input type="date" name="departure_date">
-                    <p>電話番号</p>
-                    <input type="text" name="tell">
-                    <p>返金方法</p>
+                  <div class="form-group">
+                    <label>お名前</label>
+                    <input type="text" name="cs_name" class="form-control" placeholder="例:ふくもとセレス">
+                    <label>出発日</label>
+                    <input type="date" name="departure_date" class="form-control">
+                    <label>電話番号</label>
+                    <input type="text" name="tell" class="form-control" placeholder="例:11122223333" maxlength="11">
+                    <label>返金方法</label>
                     <select name="refund_method" class="form-control">
                       <option value="1">現金</option>
                       <option value="2">口座振り込み</option>
                     </select>
-                    <p>キャッシュバック額</p>
-                    <input type="number" name="refund_amount">
-                    <p>店舗番号</p>
-                    <input type="number" name="agent_store_id">
+                    <label>キャッシュバック額</label>
+                    <input type="number" name="refund_amount" class="form-control" max="100000" min="0">
+                    <label>店舗番号</label>
+                    <input type="number" name="agent_store_id" class="form-control" min="0">
 
                   </div>
                   <p>
@@ -48,8 +48,6 @@
                     <input type="submit" value="送信" class="btn btn-dark">
                   </p>
                 </form>
-              </div>
-              <div class="col">
               </div>
             </div>
 
