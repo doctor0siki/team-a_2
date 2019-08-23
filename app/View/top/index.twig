@@ -21,6 +21,7 @@
 	position: relative;
 	left: 50%;
 	float: left;
+    list-style: none;
 }
 
 .pageNav04c ul li {
@@ -45,91 +46,80 @@
 .pageNav04c li a:hover {
 	background: #eeeff7;
 	border-color: #590416;
+    color: gray;
 }
 </style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-  <div style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:100px;">
+<div style="background-image: url('/assets/img/border.jpg');background-repeat:repeat-x;height:100px;">
+</div>
 
-  </div>
-    <div class="page-header text-center">
-        <h1>せぴあ</h1>
-    </div>
-    <div class="container">
-        <div class="box">
-          <br /><br />
-            <div class="row">
-              <div class="col text-center">
-                ココデハ色々ナ写真ガ見ラレマス。<br />
-              </div>
+<div class="page-header text-center">
+    <h1>せぴあ</h1>
+</div>
+<div class="container">
+    <div class="box">
+        <br /><br />
+        <div class="row">
+            <div class="col text-center">ココデハ色々ナ写真ガ見ラレマス。<br /></div>
+        </div>
+        <div class="row">
+            <div class="col text-center">オ気ニ入リノ写真ニ触レテクダサイ<br /></div>
+        </div>
+
+        <br /><br />
+
+        <div class="row">
+            <div class="col text-center">参加人数を選んで下さい</div>
+        </div>
+
+        <div class="row">
+            <div class="col">
             </div>
-            <div class="row">
-              <div class="col text-center">
-                オ気ニ入リノ写真ニ触レテクダサイ<br />
-              </div>
-            </div>
-
-            <br /><br />
-
-            <div class="row">
-              <div class="col text-center">
-                参加人数を選んで下さい
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-              </div>
-              <div class="col text-center">
+            <div class="col text-center">
                 <form method="get" action="">
-                  <div class="form-group text-center">
-                    <select name="menber" class="form-control">
-                      {% for i in 1..10 %}
-                        <option value="{{i}}">{{i}}人</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <p>
-                    <i class="fas fa-user-friends"></i>
-                    <input type="submit" value="探ス" class="btn btn-dark">
-                  </p>
+                    <div class="form-group text-center">
+                        <select name="menber" class="form-control">
+                        {% for i in 1..10 %}
+                            <option value="{{i}}">{{i}}人</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <p>
+                        <i class="fas fa-user-friends"></i>
+                        <input type="submit" value="探ス" class="btn btn-dark">
+                    </p>
                 </form>
-              </div>
-              <div class="col">
-              </div>
             </div>
-
-            <!-- ここから画像表示  -->
-            <!-- とりあえず全部同じやけど！ -->
-            <div class="row">
-              <div class="col　text-center">
-                <img src="/assets/img/border.jpg"class="img-fluid" style="width:100%">
-              </div>
-              <div class="col text-center">
-                <img src="/assets/img/S__49971226.jpg"class="img-fluid" style="width:100%">
-              </div>
-            </div>
-
-
-            <div class="pageNav04c">
-            <ul>
-
-            <li><a href="">壱</a></li>
-            <li><a href="3.html">弐</a></li>
-            <li><a href="3.html">参</a></li>
-            <li><a href="4.html">四</a></li>
-            <li><a href="5.html">伍</a></li>
-            <li><a href="6.html">陸</a></li>
-            <li><a href="3.html">次 &raquo;</a></li>
-            </ul>
-            </div>
-
-
-            </div>
+        <div class="col">
         </div>
     </div>
+
+    {# <!-- ここから画像表示  -->
+    <!-- とりあえず全部同じやけど！ --> #}
+    <div class="row">
+        <div class="col　text-center">
+            <img src="/assets/img/border.jpg"class="img-fluid" style="width:100%">
+        </div>
+        <div class="col text-center">
+            <img src="/assets/img/S__49971226.jpg"class="img-fluid" style="width:100%">
+        </div>
+    </div>
+
+    <div class="pageNav04c">
+        <ul>
+            <li><a href="">壱</a></li>
+            <li><a href="">弐</a></li>
+            <li><a href="">参</a></li>
+            <li><a href="">四</a></li>
+            <li><a href="">伍</a></li>
+            <li><a href="">陸</a></li>
+            <li><a href="">次 &raquo;</a></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
