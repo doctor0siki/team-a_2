@@ -1,6 +1,6 @@
 <?php
 
-use Model\Dao\Item;
+use Model\Dao\Tours;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -14,17 +14,23 @@ use Slim\Http\Response;
 
 $app->get('/tours/{tour_id}[/]', function (Request $request, Response $response, $args) {
     $data = [];
+    $host_name = $this->request->getServerParams()["HTTP_HOST"];
 
     //URLパラメータのitem_idを取得します。
     $tour_id = $args["tour_id"];
 
     //アイテムDAOをインスタンス化します。
-    $item = new Item($this->db);
+    $tour = new Tours($this->db);
+    $data['tour'] = $tour->getTour($tour_id);
+    if($data['tour'] == null){
+        return $this->view->render($response->withStatus(405), 'error/404.twig', [
+            "myMagic" => "Let's roll"
+        ]);
+    }
+    $data['tour']['reviews'] = $tour->reviews($tour_id);
+    $data['qr_path'] = 'http://'.$host_name."/tours/".$tour_id."/reserving";
 
-    //URLパラメータのitem_id部分を引数として渡し、戻り値をresultに格納します
-    // $data["result"] = $item->getItem($item_id);
     
-
     // Render index view
     return $this->view->render($response, 'tours/index.twig', $data);
     // return $this['render]->write('aaaa');
